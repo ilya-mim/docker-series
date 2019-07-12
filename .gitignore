@@ -11,5 +11,7 @@
 /Repository/bin
 /Tests/bin
 /Tests/obj
+/Integration/obj
+/Integration/bin
 /.vs
 
