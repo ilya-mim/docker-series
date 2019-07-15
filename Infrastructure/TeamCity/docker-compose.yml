@@ -14,6 +14,8 @@ services:
       SERVER_URL: http://teamcity:8111
     volumes:
       - teamcity-agent-conf:/data/teamcity_agent/conf
+      - /opt/buildagent/work:/opt/buildagent/work
+      - /opt/buildagent/temp:/opt/buildagent/temp
       - /var/run/docker.sock:/var/run/docker.sock
       
 volumes:
