@@ -10,7 +10,7 @@ RUN dotnet restore
 
 COPY . .
 
-RUN dotnet test ./Tests/Tests.csproj
+RUN dotnet test --verbosity=normal ./Tests/Tests.csproj
 
 RUN dotnet publish ./AccountOwnerServer/AccountOwnerServer.csproj -o /publish/
 
@@ -19,5 +19,7 @@ FROM microsoft/aspnetcore
 WORKDIR /publish
 
 COPY --from=build-image /publish .
+
+ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
 
 ENTRYPOINT ["dotnet", "AccountOwnerServer.dll"]
